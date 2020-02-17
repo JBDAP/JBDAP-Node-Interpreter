@@ -134,7 +134,8 @@ function parseFields(fields,lang) {
                             rawFields.push(temp)
                         }
                         else if (pieces.length === 2) {
-                            // 有 # 则左右都不能为空
+                            // 有 # 则说明是 values 定义
+                            // 左右都不能为空
                             if (pieces[0] === '' || pieces[1] === '') JS.throwError('FieldsDefError',null,null,[
                                 ['zh-cn',`字段 '${item}' 定义有误，'#' 两侧都不能是空字符串`],
                                 ['en-us',`Invalid field '${item}' definition，empty String is not allowed in both left and right sides around '#'`]

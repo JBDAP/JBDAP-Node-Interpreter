@@ -1,6 +1,6 @@
 {
   "name": "jbdap-interpreter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Core library to interpret JBDAP-json objext.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JBDAP/JBDAP-Node-Sqlite"
+    "url": "https://github.com/JBDAP/JBDAP-Node-Interpreter"
   },
   "dependencies": {
     "ajv": "^6.11.0",
