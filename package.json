@@ -1,0 +1,31 @@
+{
+  "name": "jbdap-interpreter",
+  "version": "0.1.1",
+  "description": "Core library to interpret JBDAP-json objext.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "babel src -d lib",
+    "prepare": "yarn run build",
+    "updependencies": "yarn upgrade jbdap-global@latest xss@latest lodash@latest sqlite3@latest",
+    "preupdependencies": "yarn upgrade @babel/cli@latest @babel/core@latest @babel/preset-env@latest jest@latest readline@latest"
+  },
+  "author": "JBDAP TEAM <jbdapteam@outlook.com>",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JBDAP/JBDAP-Node-Sqlite"
+  },
+  "dependencies": {
+    "ajv": "^6.11.0",
+    "jbdap-global": "^0.1.6",
+    "lodash": "^4.17.15",
+    "xss": "^1.0.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "jest": "^25.1.0"
+  }
+}
