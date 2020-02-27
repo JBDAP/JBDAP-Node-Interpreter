@@ -6,3 +6,6 @@
 
 # 忽略 test
 /test/
+
+# 忽略 jest 生成的 coverage 报告
+/coverage/
