@@ -460,7 +460,7 @@ Sanitize untrusted HTML (to prevent XSS) with a configuration specified by a Whi
 <p>
     <a href="http://jsxss.com">http</a>
     <a href="https://jsxss.com">https</a>
-    <a href>ftp</a>
+    <a href="ftp://jsxss.com">ftp</a>
     <a href>other1</a>
     <a href="/other2">other2</a>
     <a href="#">other3</a>
