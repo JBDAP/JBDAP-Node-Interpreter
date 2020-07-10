@@ -458,6 +458,24 @@ test('测试 tag2value 方法', () => {
         expect(err.fullMessage()).toMatch(/TagDefError/)
         expect(err.fullMessage()).toMatch(/不支持多层/)
     }
+    let newRoot = {
+            list: {
+                data: [
+                    {
+                        id: 1
+                    },
+                    {
+                        id: 2
+                    },
+                    {
+                        id: 3
+                    }
+                ]
+            }
+    }
+    
+    expect(calculator.tag2value('/list.$.id',newRoot,parent,null)).toEqual([1,2,3])
+
     // 正常级联取值
     expect(calculator.tag2value('$.propB.propBB.propBBA.propBBAA',root,parent,null)).toEqual('')
     expect(calculator.tag2value('$.propB.propBC.$.id',root,parent,null)).toEqual([1,2,3])

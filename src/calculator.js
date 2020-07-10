@@ -270,29 +270,30 @@ function tag2value(tag,root,parent,self,lang) {
             // 分两部分，左边依然有可能存在级联取值
             let pieces = slices[0].split('.')
             let val = target
-            // 一级取值
-            if (pieces.length === 1) return val
             // 多级取值
-            for (let i=1; i<pieces.length; i++) {
-                // 父对象类型判断
-                if (!_.isPlainObject(val)) {
-                    JS.throwError('TagDefError',null,null,[
-                        ['zh-cn',`'${tag}' 标签里的 '${pieces[i-1]}' 不是 Object 类型`],
-                        ['en-us',`'${pieces[i-1]}' in tag '${tag}' is not an Object`]
-                    ],lang)
-                }
-                // 判断是否存在该值
-                if (Object.keys(val).indexOf(pieces[i]) < 0) {
-                    // 不是最后一级属性就报错，是最后一级则返回 {NotExist} 标签
-                    if (i < pieces.length - 1) {
+            if (pieces.length > 1) {
+                // 多级取值
+                for (let i=1; i<pieces.length; i++) {
+                    // 父对象类型判断
+                    if (!_.isPlainObject(val)) {
                         JS.throwError('TagDefError',null,null,[
-                            ['zh-cn',`不存在 '${pieces[i]}' 属性`],
-                            ['en-us',`'${pieces[i]}' property does not exist`]
+                            ['zh-cn',`'${tag}' 标签里的 '${pieces[i-1]}' 不是 Object 类型`],
+                            ['en-us',`'${pieces[i-1]}' in tag '${tag}' is not an Object`]
                         ],lang)
                     }
-                    else return '{NotExist}'
+                    // 判断是否存在该值
+                    if (Object.keys(val).indexOf(pieces[i]) < 0) {
+                        // 不是最后一级属性就报错，是最后一级则返回 {NotExist} 标签
+                        if (i < pieces.length - 1) {
+                            JS.throwError('TagDefError',null,null,[
+                                ['zh-cn',`不存在 '${pieces[i]}' 属性`],
+                                ['en-us',`'${pieces[i]}' property does not exist`]
+                            ],lang)
+                        }
+                        else return '{NotExist}'
+                    }
+                    val = val[pieces[i]]
                 }
-                val = val[pieces[i]]
             }
             // 数组父对象取值完毕
             // 数组子属性取值不可继续级联
