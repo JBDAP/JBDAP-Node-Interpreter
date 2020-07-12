@@ -35,7 +35,7 @@ function checkJSON(json,lang){
                     },
                     type: {
                         type: 'string',
-                        enum: [ 'list', 'entity', 'values', 'create', 'update', 'delete', 'increase', 'decrease', 'function' ],
+                        enum: [ 'list', 'entity', 'distinct', 'values', 'create', 'update', 'delete', 'increase', 'decrease', 'function' ],
                     },
                     return: {type: 'boolean' },
                     target: {
