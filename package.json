@@ -1,6 +1,6 @@
 {
   "name": "jbdap-interpreter",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Core library to interpret JBDAP-json objext.",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,6 @@
     "ajv": "^6.11.0",
     "jbdap-global": "^0.1.9",
     "lodash": "^4.17.15",
-    "sqlite3": "^5.0.0",
     "xss": "^1.0.7"
   },
   "devDependencies": {
